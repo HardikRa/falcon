@@ -5,7 +5,7 @@
 #include "falcon.hpp"
 #include "FalconDemo1.h"
 
-extern "C" JNIEXPORT jobject JNICALL FalconDemo1_keygens(JNIEnv* env, jobject obj) {
+extern "C" JNIEXPORT jobject JNICALL FalconDemo1_keygens(JNIEnv* env, jclass obj) {
     // Create a new Java KeyPair object
     jclass keyPairClass = env->FindClass("java/security/KeyPair");
     jmethodID keyPairConstructor = env->GetMethodID(keyPairClass, "<init>", "(Ljava/security/PublicKey;Ljava/security/PrivateKey;)V");
@@ -48,7 +48,7 @@ extern "C" JNIEXPORT jobject JNICALL FalconDemo1_keygens(JNIEnv* env, jobject ob
     return keyPair;
 }
 
-extern "C" JNIEXPORT jboolean JNICALL FalconDemo1_sign(JNIEnv *env, jobject obj, jbyteArray jmsg, jint jmsglen, jbyteArray jpkey, jbyteArray jskey, jbyteArray jsig) {
+extern "C" JNIEXPORT jboolean JNICALL FalconDemo1_sign(JNIEnv *env, jclass obj, jbyteArray jmsg, jint jmsglen, jbyteArray jpkey, jbyteArray jskey, jbyteArray jsig) {
     // Convert Java byte arrays to C++ uint8_t arrays
     jbyte* msg = env->GetByteArrayElements(jmsg, NULL);
     jbyte* pkey = env->GetByteArrayElements(jpkey, NULL);
@@ -70,7 +70,7 @@ extern "C" JNIEXPORT jboolean JNICALL FalconDemo1_sign(JNIEnv *env, jobject obj,
     return static_cast<jboolean>(_signed);
 }
 
-extern "C" JNIEXPORT jboolean JNICALL FalconDemo1_verify(JNIEnv *env, jobject obj, jbyteArray jmsg, jint jmsglen, jbyteArray jpkey, jbyteArray jsig) {
+extern "C" JNIEXPORT jboolean JNICALL FalconDemo1_verify(JNIEnv *env, jclass obj, jbyteArray jmsg, jint jmsglen, jbyteArray jpkey, jbyteArray jsig) {
     // Convert Java byte arrays to C++ uint8_t arrays
     jbyte* msg = env->GetByteArrayElements(jmsg, NULL);
     jbyte* pkey = env->GetByteArrayElements(jpkey, NULL);
