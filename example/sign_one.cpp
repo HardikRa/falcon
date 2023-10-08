@@ -17,10 +17,10 @@ main()
   constexpr size_t siglen = falcon_utils::compute_sig_len<N>();
   constexpr size_t msglen = 32;
 
-  auto pkey = static_cast<uint8_t*>(std::malloc(pklen));
-  auto skey = static_cast<uint8_t*>(std::malloc(sklen));
-  auto sig = static_cast<uint8_t*>(std::malloc(siglen));
-  auto msg = static_cast<uint8_t*>(std::malloc(msglen));
+  uint8_t* pkey = static_cast<uint8_t*>(std::malloc(pklen));
+  uint8_t* skey = static_cast<uint8_t*>(std::malloc(sklen));
+  uint8_t* sig = static_cast<uint8_t*>(std::malloc(siglen));
+  uint8_t* msg = static_cast<uint8_t*>(std::malloc(msglen));
 
   // random message to be signed
   prng::prng_t rng;
