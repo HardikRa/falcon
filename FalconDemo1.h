@@ -18,18 +18,18 @@ JNIEXPORT jobject JNICALL Java_FalconDemo1_keygens
 /*
  * Class:     FalconDemo1
  * Method:    sign
- * Signature: ([B[B[B)[B
+ * Signature: ([B[BI[B)[B
  */
 JNIEXPORT jbyteArray JNICALL Java_FalconDemo1_sign
-  (JNIEnv *, jclass, jbyteArray, jbyteArray, jbyteArray);
+  (JNIEnv *, jclass, jbyteArray, jbyteArray, jint, jbyteArray);
 
 /*
  * Class:     FalconDemo1
  * Method:    verify
- * Signature: ([B[B[B)Z
+ * Signature: ([B[BI[B)Z
  */
 JNIEXPORT jboolean JNICALL Java_FalconDemo1_verify
-  (JNIEnv *, jclass, jbyteArray, jbyteArray, jbyteArray);
+  (JNIEnv *, jclass, jbyteArray, jbyteArray, jint, jbyteArray);
 
 #ifdef __cplusplus
 }
